@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="../static/siuacm.png" />
+        <style>
+            body {
+                font-family: "Courier New";
+                background-image: url("../static/background.jpg");
+            }
+            .main {
+                background-color: #FFFFFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+                padding-top: 70px;
+              padding-bottom: 70px;
+              padding-left: 10px;
+              padding-right: 10px;
+              	margin: 50px;
+            }
+
+            h1 {
+                color: #21B3E5;
+                text-align: center;
+                margin-left: 40px;
+            }
+            .instruction {
+                color: #000000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .upload-container {
+                background-color: #c5c5c5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                height: 50px;
+                border: 1.5px dashed #000;
+                border-radius: 3px;
+                margin: 20px;
+            }
+            .upload-container:hover {
+                cursor: pointer;
+            }
+            form {
+              display: flex;
+              flex-direction: column;
+            }
+            input {
+              margin: 5px 0;
+            }
+            input[type="file"] {
+                display: none;
+                height: 100%;
+                width: 100%;
+            }
+            input:hover {
+                cursor: pointer;
+            }
+            label {
+                cursor: pointer;
+            }
+            .img-container {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+        </style>
+        <title>Pixel Art Website</title>
+    </head>
+    <body>
+        <div class="main">
+              <img src="../static/siuacm.png" alt="ACM logo" height="200" width="200">
+                <h1>Pixel Art Paint-by-Number Creator</h1>
+                
+          <div class="instruction">
+            <p>
+                    Insert an image to turn it into a pixel art paint by number
+                </p>
+          </div>
+                <form
+                    action="generate"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+                    <div class="upload-container">
+                      <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" />
+                      <label for="fileToUpload">Upload Image</label>
+                    </div>
+                    <input type="submit" value="Generate" name="submit" />
+                </form>
+            
+            <div class="img-container">
+                <img width="100%" src="{{image}}">
+            </div>
+            <div class="imgColored-container">
+                <img width="100%" src="{{coloredImage}}">
+            </div>
+          </div>
+        
+    </body>
+</html>
